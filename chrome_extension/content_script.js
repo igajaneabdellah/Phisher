@@ -10,7 +10,7 @@ function checkEmail(emailBody) {
     .then(data => {
         alert('This email is: ' + data.prediction);
         
-        // Display URL check results
+        
         let urls = Object.keys(data.url_checks);
         if (urls.length > 0) {
             let urlCheckResults = 'URL Checks:\n';
@@ -25,7 +25,7 @@ function checkEmail(emailBody) {
     });
   }
   
-  // Listen for messages from background script
+  
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "analyzeEmail") {
       let emailBody = window.getSelection().toString();
