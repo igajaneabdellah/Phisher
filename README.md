@@ -1,6 +1,7 @@
 #Phiser
 
-![Banner](banner.png) <!-- Replace this with the actual path to your banner image -->
+ <!-- Replace this with the actual path to your banner image -->
+<img src="banner.png" alt="Banner" width="100%" height="auto"> <!-- Ensure the image path is correct -->
 
 ##  Overview
 
