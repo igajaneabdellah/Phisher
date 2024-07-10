@@ -17,7 +17,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 });
 
 function analyzeSelectedEmail(selectedText) {
-  // Send the selected text to the backend for analysis
+  
   fetch('http://localhost:5000/predict', {
     method: 'POST',
     headers: {
@@ -27,10 +27,10 @@ function analyzeSelectedEmail(selectedText) {
   })
   .then(response => response.json())
   .then(data => {
-    // Display the phishing prediction result
+    
     let resultMessage = `Email Analysis Result: ${data.prediction}`;
     
-    // Display URL check results if any
+    
     if (data.url_checks) {
       resultMessage += '\n\nURL Checks:\n';
       for (const [url, result] of Object.entries(data.url_checks)) {
