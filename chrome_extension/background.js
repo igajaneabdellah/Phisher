@@ -27,17 +27,18 @@ function analyzeSelectedEmail(selectedText) {
   })
   .then(response => response.json())
   .then(data => {
-    // Display the result to the user
-    alert(`Email Analysis Result: ${data.prediction === 1 ? 'Phishing' : 'Safe'}`);
+    // Display the phishing prediction result
+    let resultMessage = `Email Analysis Result: ${data.prediction}`;
     
     // Display URL check results if any
     if (data.url_checks) {
-      let urlCheckResults = 'URL Checks:\n';
+      resultMessage += '\n\nURL Checks:\n';
       for (const [url, result] of Object.entries(data.url_checks)) {
-        urlCheckResults += `${url}: ${result}\n`;
+        resultMessage += `${url}: ${result}\n`;
       }
-      alert(urlCheckResults);
     }
+    
+    alert(resultMessage);
   })
   .catch(error => console.error('Error:', error));
 }
